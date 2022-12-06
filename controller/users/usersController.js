@@ -4,11 +4,8 @@ export default (app) => {
     app.post('/api/user', createUser);
 }
 
+const createUser = (req, res) => {
 
-const createUser = async (req, res) => {
-    const newUser = req.body;
-
-    const createUser = await usersDao.creatUser(newUser);
-
-    res.json(createUser);
+    console.log("new user" + JSON.stringify(req.body))
+    usersDao.creatUser(req.body).then((createdUser) => res.json(createdUser));
 }

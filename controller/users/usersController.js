@@ -28,7 +28,6 @@ const deleteUser = (req, res) =>
 
 const findUserById = (req, res) =>
   usersDao
-    .deleteUser(req.params.id)
     .findUserById(req.params.id)
     .then((user) => res.json(user));
 

@@ -1,16 +1,20 @@
 import mongoose from "mongoose";
 
-const schema = mongoose.Schema({
+const schema = mongoose.Schema(
+  {
     firstName: String,
     lastName: String,
-    dob: String,
+    dateOfBirth: String,
     email: String,
     password: String,
-    image: String,
-    number: Number,
-    sex: String,
+    profileImage: String,
+    phoneNumber: Number,
+    gender: String,
     level: String,
-    role: String
-}, {collection: 'users'});
+    currentGradLevel: String,
+    userRole: String,
+  },
+  { collection: "users" }
+);
 
 export default schema;

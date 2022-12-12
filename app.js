@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import UsersController from "./controller/users/usersController.js";
 import TestController from "./controller/test/testController.js";
 import eventsController from "./controller/events/service.js";
+import postController from "./controller/posts/postController.js"
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,4 +32,7 @@ app.use(cors());
 UsersController(app);
 eventsController(app);
 TestController(app);
+postController(app);
+
+
 app.listen(process.env.PORT || 4000);

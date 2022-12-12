@@ -7,16 +7,16 @@ export const createEvent = (event) => model.create(event);
 export const searchEventByKeywords = (keyword) =>
   model.find({ $text: { $search: keyword } });
 
-export const likeEvent = (uid, eid) =>
+export const applyJob = (uid, eid) =>
   model.updateOne(
     { _id: eid },
-    { $addToSet: { likedBy: uid }, $inc: { likes: 1 } }
+    { $addToSet: { appliedBy: uid }, $inc: { applies: 1 } }
   );
 
-export const dislikeEvent = (uid, eid) =>
+export const unapplyJob = (uid, eid) =>
   model.updateOne(
     { _id: eid },
-    { $pull: { likedBy: uid }, $inc: { likes: -1 } }
+    { $pull: { appliedBy: uid }, $inc: { applies: -1 } }
   );
 
 export const getTodayEvents = () => {

@@ -11,8 +11,8 @@ const schema = mongoose.Schema(
     shortDescription: String,
     longDescription: String,
     image: String,
-    likes: { type: Number, default: 0 },
-    likedBy: [String],
+    applies: { type: Number, default: 0 },
+    appliedBy: [String],
     comments: [String],
   },
   { collection: "events" }

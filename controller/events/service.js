@@ -5,8 +5,8 @@ export default (app) => {
   app.get("/event", getAllEvents);
   app.post("/event", createEvent);
   app.get("/event/:searchString", searchEventByKeywords);
-  app.get("/event/:uid/:eid/like", likeEvent);
-  app.get("/event/:uid/:eid/dislike", dislikeEvent);
+  app.get("/event/:uid/:eid/apply", applyJob);
+  app.get("/event/:uid/:eid/unapply", unapplyJob);
   app.get("/event/today", getTodayEvents);
   app.get("/latestposts", getLatestPosts);
 };
@@ -23,15 +23,13 @@ const searchEventByKeywords = (req, res) => {
     .then((results) => res.json(results));
 };
 
-const likeEvent = (req, res) => {
-  dao
-    .likeEvent(req.params.uid, req.params.eid)
-    .then((status) => res.send(status));
+const applyJob = (req, res) => {
+  dao.applyJob(req.params.uid, req.params.eid)
+      .then((status) => res.send(status));
 };
 
-const dislikeEvent = (req, res) => {
-  dao
-    .dislikeEvent(req.params.uid, req.params.eid)
+const unapplyJob = (req, res) => {
+  dao.unapplyJob(req.params.uid, req.params.eid)
     .then((status) => res.send(status));
 };
 
